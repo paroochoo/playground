@@ -17,8 +17,8 @@ apply plugin: 'org.junit.gen5.gradle'
 
 sourceSets {
     main {
-//        java.srcDirs = ['src']
-        java.srcDir 'src'
+        java.srcDirs = ['src']
+//        java.srcDir 'src'
         java.exclude '**/test/*'
 //        resources.srcDir 'resources'
     }
