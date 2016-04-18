@@ -18,15 +18,12 @@ apply plugin: 'org.junit.gen5.gradle'
 sourceSets {
     main {
         java.srcDirs = ['src']
-//        java.srcDir 'src'
-//        java.exclude '**/test/*'
-//       output.classesDir = 'build/classes/main'
-//        resources.srcDirs = ['resources']
+        resources.srcDirs = ['resources']
     }
     test.java.srcDirs = ['test']
 //    test.java.srcDirs 'test'
 //    test.output.classesDir = 'build/classes/test'
-//    test.resources.srcDirs = ['test/resources']
+    test.resources.srcDirs = ['test/resources']
     file('build/classes/test').mkdirs()
 	println '======================== is directory: ' + file('build/classes/test').isDirectory()
 	test.runtimeClasspath = test.runtimeClasspath + files('build/classes/test')
