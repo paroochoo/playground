@@ -21,7 +21,7 @@ sourceSets {
 //        java.srcDir 'src'
 //        java.exclude '**/test/*'
 //       output.classesDir = 'build/classes/main'
-//        resources.srcDir 'resources'
+        resources.srcDir 'resources'
     }
     test.java.srcDirs = ['test']
 //    test.java.srcDirs 'test'
