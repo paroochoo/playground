@@ -23,8 +23,8 @@ sourceSets {
 //       output.classesDir = 'build/classes/main'
 //        resources.srcDir 'resources'
     }
-//    test.java.srcDirs = ['test']
-    test.java.srcDirs 'test'
+    test.java.srcDirs = ['test']
+//    test.java.srcDirs 'test'
 //    test.output.classesDir = 'build/classes/test'
 }
 
@@ -39,6 +39,7 @@ junit5 {
     runJunit4 true
     matchClassName '.*Test'
     excludeTag 'slow'
+    logManager 'org.apache.logging.log4j.jul.LogManager'
 }
 
 repositories {
@@ -46,10 +47,17 @@ repositories {
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 }
 
+ext.log4JVersion      = '2.5'
+
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.18'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.junit:junit4-runner:5.0.0-SNAPSHOT'
     testRuntime 'org.slf4j:slf4j-simple:1.7.18'
+    
+    testRuntime("org.apache.logging.log4j:log4j-core:${log4JVersion}")
+	testRuntime("org.apache.logging.log4j:log4j-jul:${log4JVersion}")
+	testRuntime("org.apache.logging.log4j:log4j-jcl:${log4JVersion}")
+	testRuntime("org.apache.logging.log4j:log4j-slf4j-impl:${log4JVersion}")
 }
