@@ -10,4 +10,6 @@ jdk:
 #    - $HOME/.gradle/caches/
 #    - $HOME/.gradle/wrapper/
 
+script: ./gradlew check -d
+
 after_script: gradle run
