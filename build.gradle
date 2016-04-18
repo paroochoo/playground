@@ -17,16 +17,22 @@ apply plugin: 'org.junit.gen5.gradle'
 
 sourceSets {
     main {
-        java.srcDirs = ['src']
+//        java.srcDirs = ['src']
 //        java.srcDir 'src'
-        java.exclude '**/test/*'
+//        java.exclude '**/test/*'
+//       output.classesDir = 'build/classes/main'
 //        resources.srcDir 'resources'
     }
-    test.java.srcDirs = ['test']
+//    test.java.srcDirs = ['test']
+//    test.output.classesDir = 'build/classes/test'
 }
 
 println 'main sources = ' + sourceSets.main.java.srcDirs
 println 'test sources = ' + sourceSets.test.java.srcDirs
+
+println 'main classes = ' + sourceSets.main.output.classesDir
+println 'test classes = ' + sourceSets.test.output.classesDir
+
 
 junit5 {
     version '5.0.0-SNAPSHOT'
