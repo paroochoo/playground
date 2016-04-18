@@ -9,6 +9,6 @@ public class JUnit5Test
 	void helloJUnit()
 	{
 		System.out.println("Hello JUnit5!");
-//		Main.main(null);
+		Main.main(null);
 	}
 }
