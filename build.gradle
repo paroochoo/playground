@@ -22,7 +22,7 @@ sourceSets {
         java.exclude '**/test/*'
 //        resources.srcDir 'resources'
     }
-    test.java.srcDirs 'test'
+    test.java.srcDirs = ['test']
 }
 
 println 'main sources = ' + sourceSets.main.java.srcDirs
