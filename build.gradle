@@ -28,7 +28,7 @@ println sourceSets.main.java.srcDirs
 
 junit5 {
     version '5.0.0-ALPHA'
-    runJunit4 true
+//  runJunit4 true
     matchClassName '.*Test'
     excludeTag 'slow'
 }
