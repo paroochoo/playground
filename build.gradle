@@ -27,6 +27,7 @@ sourceSets {
 //    test.java.srcDirs 'test'
 //    test.output.classesDir = 'build/classes/test'
 //    test.resources.srcDirs = ['test/resources']
+	test.runtimeClasspath = test.runtimeClasspath + files('build/classes/test')
 }
 
 println 'main sources = ' + sourceSets.main.java.srcDirs
