@@ -21,11 +21,11 @@ sourceSets {
 //        java.exclude '**/test/*'
 //        resources.srcDir 'resources'
     }
-//    test.java.srcDirs 'test'
+    test.java.srcDirs 'test'
 }
 
-println sourceSets.test.java.srcDirs
-println sourceSets.main.java.srcDirs
+println 'main sources = ' + sourceSets.main.java.srcDirs
+println 'test sources = ' + sourceSets.test.java.srcDirs
 
 junit5 {
     version '5.0.0-SNAPSHOT'
