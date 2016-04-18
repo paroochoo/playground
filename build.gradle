@@ -24,6 +24,7 @@ sourceSets {
 //        resources.srcDir 'resources'
     }
 //    test.java.srcDirs = ['test']
+    test.java.srcDirs 'test'
 //    test.output.classesDir = 'build/classes/test'
 }
 
@@ -32,7 +33,6 @@ println 'test sources = ' + sourceSets.test.java.srcDirs
 
 println 'main classes = ' + sourceSets.main.output.classesDir
 println 'test classes = ' + sourceSets.test.output.classesDir
-
 
 junit5 {
     version '5.0.0-SNAPSHOT'
