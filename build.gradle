@@ -6,9 +6,10 @@ mainClassName = 'playground.Main'
 buildscript {
     repositories {
         mavenCentral()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     }
     dependencies {
-        classpath 'org.junit:junit-gradle:5.0.0-ALPHA'
+        classpath 'org.junit:junit-gradle:5.0.0-SNAPSHOT'
     }
 }
 
@@ -27,20 +28,21 @@ println sourceSets.test.java.srcDirs
 println sourceSets.main.java.srcDirs
 
 junit5 {
-    version '5.0.0-ALPHA'
-//  runJunit4 true
+    version '5.0.0-SNAPSHOT'
+    runJunit4 true
     matchClassName '.*Test'
     excludeTag 'slow'
 }
 
 repositories {
     mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 }
 
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.18'
 
     testCompile 'junit:junit:4.12'
-    testCompile 'org.junit:junit4-runner:5.0.0-ALPHA'
+    testCompile 'org.junit:junit4-runner:5.0.0-SNAPSHOT'
     testRuntime 'org.slf4j:slf4j-simple:1.7.18'
 }
