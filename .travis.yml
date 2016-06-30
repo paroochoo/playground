@@ -10,6 +10,9 @@ cache:
    - $HOME/.gradle/caches/
    - $HOME/.gradle/wrapper/
 
+before_install:
+    - gradle -v
+
 # script: ./gradlew check -d
 
 after_script: gradle run
