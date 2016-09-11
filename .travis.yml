@@ -11,7 +11,7 @@ cache:
    - $HOME/.gradle/wrapper/
 
 before_install:
-    - gradle -v
+    - (./gradlew -v &)
     - sleep 10
     - echo 'done sleeping'
 
