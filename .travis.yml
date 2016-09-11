@@ -12,6 +12,8 @@ cache:
 
 before_install:
     - gradle -v
+    - sleep 10
+    - echo 'done sleeping'
 
 # script: ./gradlew check -d
 
