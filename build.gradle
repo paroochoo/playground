@@ -6,13 +6,18 @@ mainClassName = 'playground.Main'
 buildscript {
     repositories {
         mavenCentral()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     }
     dependencies {
-        classpath 'org.junit:junit-gradle:5.0.0-ALPHA'
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-SNAPSHOT'
     }
 }
 
-apply plugin: 'org.junit.gen5.gradle'
+ext.junitJupiterVersion = '5.0.0-SNAPSHOT'
+ext.junitPlatformVersion = '1.0.0-SNAPSHOT'
+
+
+apply plugin: 'org.junit.platform.gradle.plugin'
 
 sourceSets {
     main {
@@ -20,8 +25,6 @@ sourceSets {
         resources.srcDirs = ['resources']
     }
     test.java.srcDirs = ['test']
-//    test.java.srcDirs 'test'
-//    test.output.classesDir = 'build/classes/test'
     test.resources.srcDirs = ['test/resources']
     file('build/classes/test').mkdirs()
 	println '======================== is directory: ' + file('build/classes/test').isDirectory()
@@ -37,27 +40,30 @@ println 'test classes = ' + sourceSets.test.output.classesDir
 println 'main resources = ' + sourceSets.main.resources.srcDirs
 println 'test resources = ' + sourceSets.test.resources.srcDirs
 
-junit5 {
-    version '5.0.0-ALPHA'
-    runJunit4 true
-    matchClassName '.*Test'
-    excludeTag 'slow'
-    logManager 'org.apache.logging.log4j.jul.LogManager'
+junitPlatform {
+//    version '1.0.0-SNAPSHOT'
+//    filters { engines {
+//        include 'junit-jupiter', 'junit-vintage'
+//    } }
+//    includeClassNamePattern '.*Test'
 }
 
 repositories {
     mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 }
 
 ext.log4JVersion      = '2.5'
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.18'
+    compile 'org.slf4j:slf4j-api:1.7.21'
 
     testCompile 'junit:junit:4.12'
-    testCompile 'org.junit:junit4-runner:5.0.0-ALPHA'
-    testRuntime 'org.slf4j:slf4j-simple:1.7.18'
-    
+    testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+    testCompile("org.junit.platform:junit-platform-runner:${junitPlatformVersion}")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+    testRuntime 'org.junit.vintage:junit-vintage-engine:4.12.0-SNAPSHOT'
+
     testRuntime("org.apache.logging.log4j:log4j-core:${log4JVersion}")
 	testRuntime("org.apache.logging.log4j:log4j-jul:${log4JVersion}")
 	testRuntime("org.apache.logging.log4j:log4j-jcl:${log4JVersion}")
